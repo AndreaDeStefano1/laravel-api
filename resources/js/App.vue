@@ -2,10 +2,11 @@
 <template>
     <div>
         <div class="container">
-            <h1>Lista Post</h1>
+            <h1 class=" text-center mb-3">Lista Post</h1>
             <ul>
-                <li v-for="item in items" :key="item.id">
-                    {{ item }}
+                <li v-for="post in posts" :key="post.id">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.text }}</p>
                 </li>
             </ul>
         </div>
@@ -20,14 +21,15 @@ import Axios from 'axios'
 export default {
     data () {
         return {
-            apiUrl:'http://127.0.0.1:8000/api/posts'
+            apiUrl:'http://127.0.0.1:8000/api/posts',
+            posts: null
         }
     },
     methods:{
         getApi(){
             Axios.get(this.apiUrl)
             .then(res =>{
-                console.log(res.data)
+                this.posts = res.data.posts;
             })
         }
     },

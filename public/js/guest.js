@@ -1914,13 +1914,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      apiUrl: 'http://127.0.0.1:8000/api/posts'
+      apiUrl: 'http://127.0.0.1:8000/api/posts',
+      posts: null
     };
   },
   methods: {
     getApi: function getApi() {
+      var _this = this;
+
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.apiUrl).then(function (res) {
-        console.log(res.data);
+        _this.posts = res.data.posts;
       });
     }
   },
@@ -1949,10 +1952,12 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v("Lista Post")]), _vm._v(" "), _c("ul", _vm._l(_vm.items, function (item) {
+  }, [_c("h1", {
+    staticClass: "text-center mb-3"
+  }, [_vm._v("Lista Post")]), _vm._v(" "), _c("ul", _vm._l(_vm.posts, function (post) {
     return _c("li", {
-      key: item.id
-    }, [_vm._v("\n                    " + _vm._s(item) + "\n                ")]);
+      key: post.id
+    }, [_c("h3", [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.text))])]);
   }), 0)])]);
 };
 
