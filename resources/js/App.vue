@@ -7,6 +7,9 @@
                 <li v-for="post in posts" :key="post.id">
                     <h3>{{ post.title }}</h3>
                     <p>{{ post.text }}</p>
+                    <span class="text-light" v-for="tag in post.tags" :key="tag.id">
+                        {{ tag.name }}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -14,7 +17,6 @@
 </template>
 
 <script>
-import Axios from 'axios'
 
 
 
@@ -27,14 +29,15 @@ export default {
     },
     methods:{
         getApi(){
-            Axios.get(this.apiUrl)
+            axios.get(this.apiUrl)
             .then(res =>{
+                console.log(res.data);
                 this.posts = res.data.posts;
             })
         }
     },
     mounted(){
-        console.log(axios);
+
 
         this.getApi();
     }

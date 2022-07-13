@@ -1908,9 +1908,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1922,13 +1919,13 @@ __webpack_require__.r(__webpack_exports__);
     getApi: function getApi() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.apiUrl).then(function (res) {
+      axios.get(this.apiUrl).then(function (res) {
+        console.log(res.data);
         _this.posts = res.data.posts;
       });
     }
   },
   mounted: function mounted() {
-    console.log(axios);
     this.getApi();
   }
 });
@@ -1957,7 +1954,12 @@ var render = function render() {
   }, [_vm._v("Lista Post")]), _vm._v(" "), _c("ul", _vm._l(_vm.posts, function (post) {
     return _c("li", {
       key: post.id
-    }, [_c("h3", [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.text))])]);
+    }, [_c("h3", [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(post.text))]), _vm._v(" "), _vm._l(post.tags, function (tag) {
+      return _c("span", {
+        key: tag.id,
+        staticClass: "text-light"
+      }, [_vm._v("\n                        " + _vm._s(tag.name) + "\n                    ")]);
+    })], 2);
   }), 0)])]);
 };
 
