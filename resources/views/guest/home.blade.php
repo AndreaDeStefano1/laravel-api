@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/guest/style.css') }}">
-    <script src="{{ asset('css/guest/style.css') }}"></script>
+    <script src="{{ asset('js/guest.js') }}" defer></script>
     <title>Document</title>
 </head>
 <body>
-    ciao
+    <div id="app">
+        {{-- qui verra iniettato vue --}}
+    </div>
 </body>
 </html>
