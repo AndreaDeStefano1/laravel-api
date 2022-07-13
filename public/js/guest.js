@@ -1908,9 +1908,25 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      apiUrl: 'http://127.0.0.1:8000/api/posts'
+    };
+  },
+  methods: {
+    getApi: function getApi() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.apiUrl).then(function (res) {
+        console.log(res.data);
+      });
+    }
+  },
+  mounted: function mounted() {
+    console.log(axios);
+    this.getApi();
   }
 });
 
@@ -1931,15 +1947,16 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
+  return _c("div", [_c("div", {
+    staticClass: "container"
+  }, [_c("h1", [_vm._v("Lista Post")]), _vm._v(" "), _c("ul", _vm._l(_vm.items, function (item) {
+    return _c("li", {
+      key: item.id
+    }, [_vm._v("\n                    " + _vm._s(item) + "\n                ")]);
+  }), 0)])]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", [_c("h1", [_vm._v("CIAO")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -49442,6 +49459,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 
 /**

@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+window.axios = require('axios');
+
 import { h } from 'vue';
 import App from './App.vue'
 
